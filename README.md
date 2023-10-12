@@ -1,4 +1,4 @@
-# Scribble-based Medical Image Segmentation using Shape Shape Perturbation Consistency
+# Scribble-based Medical Image Segmentation using Shape Perturbation Consistency
 This project contains the model weights trained according to our algorithm and inference code.
 
 # Model Weights
