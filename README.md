@@ -1,4 +1,4 @@
-# Scribble-based Medical Image Segmentation using Shape Perturbation Consistency and Boundary Enhancement Constraint
+# Scribble-based Medical Image Segmentation via Shape Perturbation Consistency and Boundary Enhancement Constraint
 This project contains the model weights trained according to our algorithm and inference code.
 
 # Model Weights
