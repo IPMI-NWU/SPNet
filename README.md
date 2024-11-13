@@ -1,5 +1,5 @@
 # [ISBI2024] Scribble-based Medical Image Segmentation via Shape Perturbation Consistency and Boundary Enhancement Constraint
-This project contains the model weights trained according to our algorithm and inference code.
+This project contains the model weights trained according to our algorithm and inference code. <br>
 Paper link: https://ieeexplore.ieee.org/abstract/document/10635391
 
 # Model Weights
