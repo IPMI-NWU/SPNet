@@ -234,14 +234,13 @@ def train_one_epoch(model: torch.nn.Module, criterion: torch.nn.Module,
         # 伪标签生成
         # -------------------------------------------------------
         beta = np.random.rand(4)
-        beta[0], beta[1] = beta[0], beta[1]
         beta = [b / np.sum(beta) for b in beta]
         pseudo_pred = beta[0] * output["pred_masks"] + beta[1] * output_jig_2["pred_masks"] + \
                       beta[2] * output_jig_4["pred_masks"] + \
                       beta[3] * output_color["pred_masks"]
         pseudo_label = torch.argmax(pseudo_pred.detach(), dim=1, keepdim=False).unsqueeze(1)
         # -------------------------------------------------------
-        # integrity loss (local consistency)
+        # integrity loss
         # -------------------------------------------------------
         pred = output["pred_masks"]
         predictions_original_list = []
@@ -295,12 +294,6 @@ def train_one_epoch(model: torch.nn.Module, criterion: torch.nn.Module,
         # pseudo loss
         # -------------------------------------------------------
         dice_loss = pDLoss(4, ignore_index=4)
-
-        # loss_pseudo = 0.1 * (dice_loss(output["pred_masks"], pseudo_label) +
-        #                    dice_loss(output_jig_2["pred_masks"], pseudo_label) +
-        #                    1.0 * dice_loss(output_jig_4["pred_masks"], pseudo_label) +
-        #                    1.0 * dice_loss(output_color["pred_masks"], pseudo_label))
-
         loss_pseudo = get_pseudo_weight(epoch) * (dice_loss(output["pred_masks"], pseudo_label) +
                                                   dice_loss(output_jig_2["pred_masks"], pseudo_label) +
                                                   1.0 * dice_loss(output_jig_4["pred_masks"], pseudo_label) +
@@ -319,7 +312,6 @@ def train_one_epoch(model: torch.nn.Module, criterion: torch.nn.Module,
         loss = loss_scribble + loss_scribble_jig_2 + loss_scribble_jig_4 + loss_scribble_color + \
                loss_consistency_1_2 + loss_consistency_1_4 + loss_consistency_1_c + \
                loss_integrity + loss_pseudo + loss_edge
-
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
@@ -346,7 +338,7 @@ def train_one_epoch(model: torch.nn.Module, criterion: torch.nn.Module,
             pseudo_pred_list.append(pseudo_pred[0].detach())
             edge_list.append(edge[0].detach())
         # -------------------------------------------------------
-        # 打印loss
+        # loss
         # -------------------------------------------------------
         loss_dict_reduced = utils.reduce_dict(loss_dict)
         metric_logger.update(lr=optimizer.param_groups[0]["lr"])
