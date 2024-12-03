@@ -11,6 +11,18 @@ https://pan.baidu.com/s/17DuKK0iLRfpSEGVlgj8o-A
 1. The MSCMR dataset with mask annotations can be downloaded from [MSCMRseg](https://zmiclab.github.io/zxh/0/mscmrseg19/data.html).
 2. The ACDC dataset with mask annotations can be downloaded from [ACDC](https://www.creatis.insa-lyon.fr/Challenge/acdc/).
 
+# Requirements
+Some important required packages include:
+* [Pytorch][torch_link] version == 2.3.0.
+* torchvision == 0.18.0
+* TensorBoardX == 2.6.22.
+* Python >= 3.10.
+* numpy == 1.26.4.
+* opencv-python == 4.10.0.84.
+* scipy == 1.14.0.
+
+Follow official guidance to install [Pytorch][torch_link].
+
 # Citation
 @INPROCEEDINGS{10635391,<br>
  $~~~~$ author={Wu, Shaoxuan and Zhang, Xiao and Huang, Ying and Sun, Xia and Feng, Jun},<br>
