@@ -13,7 +13,7 @@ https://pan.baidu.com/s/17DuKK0iLRfpSEGVlgj8o-A
 
 # Requirements
 Some important required packages include:
-* [Pytorch][torch_link] version == 2.3.0
+* torch == 2.3.0
 * torchvision == 0.18.0
 * TensorBoardX == 2.6.22
 * Python == 3.10.14
