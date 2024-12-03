@@ -13,15 +13,13 @@ https://pan.baidu.com/s/17DuKK0iLRfpSEGVlgj8o-A
 
 # Requirements
 Some important required packages include:
-* [Pytorch][torch_link] version == 2.3.0.
+* [Pytorch][torch_link] version == 2.3.0
 * torchvision == 0.18.0
-* TensorBoardX == 2.6.22.
-* Python >= 3.10.
-* numpy == 1.26.4.
-* opencv-python == 4.10.0.84.
-* scipy == 1.14.0.
-
-Follow official guidance to install [Pytorch][torch_link].
+* TensorBoardX == 2.6.22
+* Python == 3.10.14
+* numpy == 1.26.4
+* opencv-python == 4.10.0.84
+* scipy == 1.14.0
 
 # Citation
 @INPROCEEDINGS{10635391,<br>
